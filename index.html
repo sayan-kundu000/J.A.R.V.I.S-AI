@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JARVIS Advanced Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        
+        <!-- Sidebar or Header -->
+        <header class="glass-panel main-header">
+            <div class="logo">
+                <h1>J.A.R.V.I.S <span>OS</span></h1>
+            </div>
+            
+            <div class="nav-controls">
+                <button id="btn-panel1" class="glass-btn active">Main Dash</button>
+                <button id="btn-panel2" class="glass-btn">Global Rankings ➜</button>
+            </div>
+            
+            <div class="quantum-status">
+                Quantum Link: <span id="q-status">Simulating...</span>
+                <span id="q-output" class="highlight"></span>
+            </div>
+        </header>
+
+        <!-- Slider Wrapper -->
+        <div class="slider-wrapper">
+            
+            <!-- PANEL 1: Main Dashboard -->
+            <main class="grid-layout panel active-panel" id="panel-1">
+                
+                <!-- System Stats -->
+                <section class="glass-panel widget">
+                    <h2>System Diagnostics</h2>
+                    <div class="sys-info">
+                        <p>OS: <span id="sys-os" class="highlight">Loading...</span></p>
+                        <p>CPU: <span id="sys-cpu" class="highlight">0%</span></p>
+                        <p>Mem: <span id="sys-mem" class="highlight">0%</span></p>
+                        <p>Battery: <span id="sys-bat" class="highlight">100%</span></p>
+                        <p>Temp: <span id="sys-temp" class="highlight">0°C</span></p>
+                    </div>
+                </section>
+
+                <!-- Finance / Stocks -->
+                <section class="glass-panel widget large-widget">
+                    <h2>Stock 5-Year Forecast</h2>
+                    <div class="chart-container">
+                        <canvas id="stocksChart"></canvas>
+                    </div>
+                </section>
+
+                <!-- Weather -->
+                <section class="glass-panel widget">
+                    <h2>15-Day Weather Forecast</h2>
+                    <div class="chart-container">
+                        <canvas id="weatherChart"></canvas>
+                    </div>
+                </section>
+
+                <!-- Box Office -->
+                <section class="glass-panel widget large-widget">
+                    <h2>Global Box Office</h2>
+                    <div class="chart-container">
+                        <canvas id="movieChart"></canvas>
+                    </div>
+                </section>
+
+                <!-- Gold Rates -->
+                <section class="glass-panel widget">
+                    <h2>India Gold Trends</h2>
+                    <div class="chart-container">
+                        <canvas id="goldChart"></canvas>
+                    </div>
+                </section>
+
+                <!-- Sports Live -->
+                <section class="glass-panel widget">
+                    <h2>Sports Feeds</h2>
+                    <div class="sports-feed" id="sports-container">
+                        Loading sports...
+                    </div>
+                </section>
+                
+            </main>
+
+            <!-- PANEL 2: Country Rankings -->
+            <main class="grid-layout panel" id="panel-2">
+                
+                <!-- Top 15 GDP & Population -->
+                <section class="glass-panel widget large-widget">
+                    <h2>Top 15 Countries: GDP vs Population</h2>
+                    <div class="chart-container" style="height: 400px;">
+                        <canvas id="countryGdpPopChart"></canvas>
+                    </div>
+                </section>
+                
+                <!-- Top 15 Pollution -->
+                <section class="glass-panel widget large-widget">
+                    <h2>Top 15 Countries: Pollution Trends (AQI)</h2>
+                    <div class="chart-container" style="height: 300px;">
+                        <canvas id="countryPollutionChart"></canvas>
+                    </div>
+                </section>
+                
+            </main>
+
+        </div>
+    </div>
+    
+    <!-- Floating Chat UI -->
+    <div class="chat-overlay">
+        <div class="chat-header">Talk to JARVIS</div>
+        <div class="chat-history" id="chat-box">
+            <div class="message jarvis">Hello, sir. How can I assist you today?</div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Give JARVIS a command..." />
+            <button id="chat-send" class="glass-btn">Send</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
